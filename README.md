@@ -1,12 +1,23 @@
 # container-demo
 
-> A Vue.js project
+> A simple demo shows how to use SIMBA API to post and get info to/from a private blockchain(Circle of Life). It supports posting/geting info as three different roles. An Ethereum account is auto generated and Ethers are auto deposited if no wallet is detected on user's browser. 
+
 
 ## Build Setup
 
 ``` bash
 # install dependencies
 npm install
+
+# create and configure an app on Simba Dashboard 
+# with the `container-demo` smart contract
+# at https://app.simbachain.com/
+
+# generate APIKEYs on `App-View` page for SIMBA-API and Configuration(management) API
+
+# open src/components/gateways/simba-api.js, replace `baseURL` and `APIKEY` with yours
+
+# open src/components/gateways/manage-api.js, replace `APIKEY` with yours
 
 # serve with hot reload at localhost:8080
 npm run dev
@@ -27,4 +38,10 @@ npm run e2e
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## What you can find out from this demo
+
+1. How to create/restore an Ethereum account and save it into browser's localstorage 
+2. How to deposit Ethers to an Ethereum account on a private blockchain with Configuration(management) API
+2. How to use SIMBA API to post information/file to a private blockchain
+3. How to use SIMBA API to retreive information/file from a private blockchain
+4. How to use SIMBA API to query transcations with different serach conditions
