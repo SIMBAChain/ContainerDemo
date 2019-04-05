@@ -1,6 +1,13 @@
 pragma solidity ^0.4.24;
 contract ContainerTxn {
     function ContainerTxn() public {}
+    enum Assets {
+        Container
+    }
+    Assets _shipCleanContainer = Assets.Container;
+    Assets _shipContainerWithParts = Assets.Container;
+    Assets _shipDirtyContainer = Assets.Container;
+    Assets _recycleContainer = Assets.Container;
 
     function shipCleanContainer(
         string inventoryType,
@@ -13,9 +20,10 @@ contract ContainerTxn {
         string bol,
         string poNo,
         string partNo,
-        string assetId,
-        string container,
-        string _bundleHash) public {}
+        string assetId, 
+        string _bundleHash) public {} 
+        // 'assetId' is used to generate graph(experimental feature). It is reuqired, but you can fill with anything 
+        // add '_bundleHash', if you prefer to upload a file when calling a method
 
     function shipContainerWithParts(
         string inventoryType,
@@ -29,7 +37,6 @@ contract ContainerTxn {
         string poNo,
         string partNo,
         string assetId,
-        string container,
         string _bundleHash) public {}
 
     function shipDirtyContainer(
@@ -43,7 +50,6 @@ contract ContainerTxn {
         string poNo,
         string partNo,
         string assetId,
-        string container,
         string _bundleHash) public {}
 
     function recycleContainer(
@@ -51,6 +57,5 @@ contract ContainerTxn {
         string inventoryQty,
         string destinationServiceCenter,
         string assetId,
-        string container,
         string _bundleHash) public {}
 }

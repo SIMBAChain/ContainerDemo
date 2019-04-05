@@ -23,46 +23,6 @@
     </div>
 
     <div v-if="!showWarning">
-      <!--md-dialog class="wallet" :md-click-outside-to-close=false :md-active.sync="isSigning">
-        <md-toolbar class="md-accent md-dense">
-          <h3 class="md-title">Signing this Transaction</h3>
-        </md-toolbar>
-
-        <div class="wallet-content">
-          <div class="md-caption">Please make sure you have enough balance,</div>
-          <div class="md-caption">otherwise the transaction will be failed!!!</div>
-          <br>
-          <div class="md-layout md-alignment-center-left">
-            <div class="md-layout-item md-size-60">
-              <md-field>
-                <label>Balance in Rinkeby</label>
-                <md-input v-model="accountBalance" readonly></md-input>
-              </md-field>
-            </div>
-
-            <md-button class="md-icon-button" @click="getCurrentWallet">
-              <md-icon>
-                refresh
-                <md-tooltip md-direction="top">Refresh</md-tooltip>
-              </md-icon>
-            </md-button>
-
-            <md-button class="md-icon-button" href="https://faucet.rinkeby.io/" target="_blank">
-              <md-icon>
-                input
-                <md-tooltip md-direction="top">Deposit</md-tooltip>
-              </md-icon>
-            </md-button>
-          </div>
-          <br>
-          <br>
-          <br>
-        </div>
-        <md-dialog-actions class="md-layout">
-            <md-button class="md-accent md-raised" @click="unlockWallet">Sign</md-button>
-        </md-dialog-actions>
-      </md-dialog-->
-
       <div class="post-form">
         <md-card class="md-layout-item md-size-50 md-large-size-50 md-medium-size-70 md-small-size-90 md-xsmall-size-100">
           <md-card-header>
@@ -241,7 +201,6 @@ export default {
     accountBalance: null,
     txnId: null,
     unsignedTxn: null,
-    // isSigning: false,
     showSC: false,
     showSU: false,
     showMF: false,
@@ -271,19 +230,7 @@ export default {
   methods: {
     getCurrentWallet () {
       this.unlockWallet()
-      // let address = this.getAddress()
-      // this.getBalance(address)
     },
-    // getBalance (address) {
-    //   let self = this
-    //   let providers = ethers.providers
-    //   let provider = providers.getDefaultProvider('rinkeby')
-    //   provider.getBalance(address).then(function (balance) {
-    //     let etherString = ethers.utils.formatEther(balance)
-    //     self.accountBalance = etherString + ' ETH'
-    //     self.isSigning = true
-    //   })
-    // },
     unlockWallet () {
       try {
         let mnemonic = this.getWallet()
@@ -363,8 +310,7 @@ export default {
         bodyFormData.append('file[0]', document.getElementById('attachment').files[0])
       }
 
-      bodyFormData.append('container', '0x000000')
-      bodyFormData.append('assetId', '0x000000')
+      bodyFormData.append('assetId', 'usedToGenerateGraph,butYouCanIgnoreItAndFillWithAnything')
 
       let method = null
 
@@ -417,7 +363,6 @@ export default {
 </script>
 
 <style scoped>
-
   .my-card {
     margin-top: 40px;
     width: 300px;

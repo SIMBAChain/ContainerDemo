@@ -385,7 +385,7 @@ export default {
       this.searched = null
       let self = this
       try {
-        simbaApi.getData(condition + '/?no_page=1/')
+        simbaApi.getData(condition)
           .then(function (response) {
             self.theBar = false
             self.searched = response.data.results
@@ -526,7 +526,7 @@ export default {
       this.searched = []
       let self = this
       try {
-        simbaApi.getData('transaction/?noContractTxn=1&no_page=1/')
+        simbaApi.getData('transaction/?noContractTxn=1')
           .then(function (response) {
             self.theBar = false
             self.searched = response.data.results
