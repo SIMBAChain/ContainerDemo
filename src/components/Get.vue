@@ -24,7 +24,7 @@
 
     <div v-if="showTracking">
 
-      <md-table class="audit-table md-layout-item md-size-70 md-large-size-70 md-medium-size-80 md-small-size-90 md-xsmall-size-100" v-model="searched" md-sort="name" md-sort-order="asc" md-card md-fixed-header>
+      <md-table class="audit-table md-layout-item md-size-70 md-large-size-70 md-medium-size-80 md-small-size-90 md-xsmall-size-100" v-model="searched" md-sort="name" md-sort-order="asc" md-fixed-header>
         <md-table-toolbar>
           <div class="md-toolbar-section-start filter-btn">
             <md-menu md-align-trigger md-size="big">
@@ -346,7 +346,7 @@ export default {
   }),
   methods: {
     triggerSearch (category) {
-      this.searchBar = true
+      this.searchBar = []
       this.searchBy = 'Search by ' + category
       this.searchCategory = category
       this.search = ''
@@ -523,7 +523,7 @@ export default {
       }
     },
     getRecords (e) {
-      this.searched = null
+      this.searched = []
       let self = this
       try {
         simbaApi.getData('transaction/?noContractTxn=1&no_page=1/')

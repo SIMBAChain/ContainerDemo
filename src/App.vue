@@ -164,12 +164,6 @@
       </md-app-drawer>
 
       <md-app-content class="bg-color">
-        <!--div class="video-background">
-          <div class="video-foreground">
-            <iframe src="https://www.youtube.com/embed/acYH78c5tuQ?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=qghQ5eKGcyE" frameborder="0" allowfullscreen>
-            </iframe>
-          </div-->
-        </div>
         <router-view class="conent">
         </router-view>
       </md-app-content>
@@ -223,31 +217,6 @@
     width: 230px;
     max-width: calc(100vw - 125px);
   }
-  .video-background {
-    background: #000;
-    position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
-    z-index: 1;
-  }
-  .video-foreground,
-  .video-background iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    min-width: 1400px;
-    min-height: 900px;
-    pointer-events: none;
-  }
-
-  @media all and (max-width: 600px) {
-  .vid-info { width: 50%; padding: .5rem; }
-  .vid-info h1 { margin-bottom: .2rem; }
-  }
-  @media all and (max-width: 500px) {
-  .vid-info .acronym { display: none; }
-  }
   .wallet {
     min-width: 320px;
   }
@@ -259,7 +228,7 @@
 
 <script>
 import { localstorage } from './components/mixins/localstorage'
-import simbaApi from './components/gateways/simba-api'
+import manageApi from './components/gateways/manage-api'
 import ethers from 'ethers'
 
 export default {
@@ -355,7 +324,7 @@ export default {
       }
       let self = this
       try {
-        simbaApi.signTxn('requestFunds/', payload).then(function () {
+        manageApi.requestFund('requestFunds/', payload).then(function () {
           self.depositedWallet = true
         })
       } catch (e) {
