@@ -1,6 +1,6 @@
 # container-demo
 
-> A simple demo shows how to use SIMBA API to post and get info to/from a private blockchain(Circle of Life). It supports posting/geting info as three different roles. An Ethereum account is auto generated and Ethers are auto deposited if no wallet is detected on user's browser. 
+> A simple demo shows how to use SIMBA API to post and get info to/from a private blockchain(Circle of Life). It supports posting/geting info as three different roles. An Ethereum account is auto generated and Ethers are auto deposited if no wallet is detected on user's browser. It auto signs the transaction when a post being made. 
 
 
 ## Build Setup
